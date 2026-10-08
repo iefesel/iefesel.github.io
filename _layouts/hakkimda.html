@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<p class="eyebrow">Hakkımda</p>
+<h1 class="h">Merhaba, ben {{ site.data.profil.kisa_isim }}.</h1>
+<div class="prose">
+{{ site.data.profil.hakkimda | markdownify }}
+</div>
+
+<div class="cv">
+{%- for b in site.data.ozgecmis %}
+  <div class="cv-block">
+    <h2 class="cv-title">{{ b.baslik }}</h2>
+    {%- if b.etiketler %}
+    <ul class="chips">{% for e in b.etiketler %}<li class="chip">{{ e }}</li>{% endfor %}</ul>
+    {%- else %}
+    {%- for r in b.satirlar %}
+    <div class="cv-row">
+      <span class="cv-when">{{ r.ne_zaman }}</span>
+      <div><div class="cv-what">{{ r.ne }}</div>{% if r.aciklama %}<div class="cv-note">{{ r.aciklama }}</div>{% endif %}</div>
+    </div>
+    {%- endfor %}
+    {%- endif %}
+  </div>
+{%- endfor %}
+</div>
+
+{%- assign yazilar = site.posts | where_exp: "y", "y.taslak != true" -%}
+{%- if yazilar.size > 0 %}
+<div class="section-sub">
+  <p class="eyebrow">Son yazılar</p>
+  {% assign son = yazilar | slice: 0, 3 %}{% include yazi-listesi.html yazilar=son %}
+  {% if yazilar.size > 3 %}<p><a href="{{ '/blog/' | relative_url }}">Tüm yazılar →</a></p>{% endif %}
+</div>
+{%- endif %}

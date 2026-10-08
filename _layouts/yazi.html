@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- assign yazilar = site.posts | where_exp: "y", "y.taslak != true" -%}
+<a class="back" href="{{ '/blog/' | relative_url }}">← Tüm yazılar</a>
+<header class="post-head">
+  <h1 class="h">{{ page.title }}</h1>
+  {%- assign kelime = content | number_of_words -%}
+  {%- assign dk = kelime | divided_by: 200 -%}{%- if dk < 1 %}{% assign dk = 1 %}{% endif %}
+  <span class="date">{% include tarih.html d=page.date %} · {{ dk }} dk okuma</span>
+  {% if page.etiketler %}<div class="tags">{% for t in page.etiketler %}<span class="tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+</header>
+<article class="prose">
+{{ content }}
+</article>
+{%- if page.previous or page.next %}
+<nav class="post-nav" aria-label="Diğer yazılar">
+  <span>{% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% endif %}</span>
+  <span>{% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}</span>
+</nav>
+{%- endif %}

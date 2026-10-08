@@ -1,0 +1,20 @@
+# ─────────────────────────────────────────────
+#  PROJELER
+#  Yeni proje: aşağıdaki bloğu kopyala, altına yapıştır, doldur.
+#  taslak: true olanlar sitede görünmez.
+#  url boş bırakılırsa "Görüntüle" linki çıkmaz.
+#  Bir PDF'e bağlamak için: url: "/belgeler/dosya-adi.pdf"
+# ─────────────────────────────────────────────
+
+- baslik: "Kişisel web sitesi"
+  yil: "2026"
+  durum: "Yayında"
+  aciklama: "Şu an baktığın site. Hakkımda, özgeçmiş, blog, belgeler ve linkler bölümlerinden oluşuyor."
+  url: "https://github.com/iefesel/iefesel.github.io"
+
+- baslik: "Proje adı"
+  yil: "2026"
+  durum: "Devam ediyor"
+  aciklama: "Bir ders projesini, Python/MATLAB çalışmanı ya da laboratuvar deneyini kısaca anlat."
+  url: ""
+  taslak: true

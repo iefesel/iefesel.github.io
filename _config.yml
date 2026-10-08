@@ -1,0 +1,29 @@
+# Site ayarları — genelde dokunmana gerek yok.
+title: İbrahim Efe Sel
+description: ODTÜ Fizik lisans öğrencisi. Matematiksel fizik, parçacık fiziği ve hızlandırıcı teknolojileri üzerine notlar, yazılar ve belgeler.
+url: https://iefesel.github.io
+baseurl: ""
+lang: tr
+
+# Blog yazılarının adresi: iefesel.github.io/blog/yazi-adi/
+permalink: /blog/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+timezone: Europe/Istanbul
+
+exclude:
+  - BENIOKU.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Yazılar otomatik olarak "yazi" düzenini kullanır
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: yazi

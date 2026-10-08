@@ -1,0 +1,18 @@
+---
+layout: default
+title: Linkler
+bolum: linkler
+aciklama: Faydalı bulduğum siteler ve kaynaklar.
+---
+<p class="eyebrow">Linkler</p>
+<h1 class="h">Faydalı kaynaklar</h1>
+{%- for g in site.data.linkler %}
+<div class="doc-group">
+  <h2 class="cv-title">{{ g.grup }}</h2>
+  <ul class="link-list">
+  {%- for l in g.linkler %}
+    <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.ad }} ↗</a>{% if l.aciklama %}<span class="link-note">{{ l.aciklama }}</span>{% endif %}</li>
+  {%- endfor %}
+  </ul>
+</div>
+{%- endfor %}

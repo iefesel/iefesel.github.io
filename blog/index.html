@@ -1,0 +1,10 @@
+---
+layout: default
+title: Blog
+bolum: blog
+aciklama: İbrahim Efe Sel'in yazıları.
+---
+{%- assign yazilar = site.posts | where_exp: "y", "y.taslak != true" -%}
+<p class="eyebrow">Blog · {{ yazilar.size }} yazı</p>
+<h1 class="h">Yazılar</h1>
+{% include yazi-listesi.html yazilar=yazilar %}

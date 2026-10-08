@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────
+#  ÖZGEÇMİŞ — Hakkımda sayfasının alt kısmı
+#  İki tür bölüm var:
+#    satirlar:  solda tarih/etiket, sağda başlık ve açıklama
+#    etiketler: yan yana kutucuklar
+#  Yeni bölüm eklemek için bir bloğu kopyalayıp altına yapıştır.
+# ─────────────────────────────────────────────
+
+- baslik: "Eğitim"
+  satirlar:
+    - ne_zaman: "2022 – 2027"
+      ne: "Orta Doğu Teknik Üniversitesi (ODTÜ)"
+      aciklama: "Fizik, Lisans · Ankara · Mezuniyet 2027 (beklenen)"
+    - ne_zaman: "2018 – 2022"
+      ne: "Zile Fen Lisesi"
+      aciklama: "Tokat"
+
+- baslik: "Akademik ilgi alanları"
+  etiketler:
+    - "Matematiksel fizik"
+    - "Parçacık fiziği"
+    - "Yüksek enerji fiziği"
+    - "Hızlandırıcı fiziği ve teknolojileri"
+    - "Kuantum bilgi kuramı"
+
+- baslik: "İlgili dersler"
+  etiketler:
+    - "Kuantum Fiziği"
+    - "Kuantum Mekaniği"
+    - "İstatistiksel Termodinamik"
+    - "Fizikte Matematiksel Yöntemler"
+
+- baslik: "Beceriler"
+  satirlar:
+    - ne_zaman: "Programlama"
+      ne: "Python, MATLAB, C"
+    - ne_zaman: "Diller"
+      ne: "Türkçe (ana dil), İngilizce (C1)"
+    - ne_zaman: "Hobiler"
+      ne: "Keman"
+
+- baslik: "Deneyim"
+  satirlar:
+    - ne_zaman: "Temmuz"
+      ne: "Ankara Üniversitesi Hızlandırıcı Teknolojileri Enstitüsü"
+      aciklama: "Yaz stajı · Ankara"
+
+- baslik: "Yurt dışı deneyimi"
+  satirlar:
+    - ne_zaman: "Yaz 2024"
+      ne: "Work and Travel — ABD"
+      aciklama: "3 ay · New Hampshire · Wentworth by the Sea ve Water Country'de uluslararası ekiplerle çalıştım."

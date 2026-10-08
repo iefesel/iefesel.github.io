@@ -1,0 +1,14 @@
+{%- assign liste = include.yazilar -%}
+{%- if liste.size == 0 -%}
+<p class="empty">Henüz yazı yok. İlk yazı yakında burada olacak.</p>
+{%- else -%}
+<ul class="posts">
+{%- for y in liste %}
+  <li><a class="row" href="{{ y.url | relative_url }}">
+    <span class="date">{% include tarih.html d=y.date %}</span>
+    <div><h3>{{ y.title }}</h3>{% if y.ozet %}<p>{{ y.ozet }}</p>{% endif %}
+      {% if y.etiketler %}<div class="tags">{% for t in y.etiketler %}<span class="tag">{{ t }}</span>{% endfor %}</div>{% endif %}</div>
+  </a></li>
+{%- endfor %}
+</ul>
+{%- endif -%}

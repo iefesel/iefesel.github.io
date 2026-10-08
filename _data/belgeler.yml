@@ -1,0 +1,18 @@
+# ─────────────────────────────────────────────
+#  BELGELER (PDF'ler) — İSTEĞE BAĞLI
+#
+#  "belgeler" klasörüne yüklediğin her PDF, Belgeler sayfasında
+#  OTOMATİK olarak görünür. Bu dosyayı düzenlemen gerekmez.
+#
+#  Bir PDF'e güzel bir başlık, açıklama veya kategori vermek
+#  istersen buraya ekle. "dosya" adı, yüklediğin dosyanın adıyla
+#  birebir aynı olmalı (büyük/küçük harf dahil).
+#
+#  Örnek:
+#  - dosya: "kuantum-mekanigi-notlar.pdf"
+#    baslik: "Kuantum Mekaniği ders notlarım"
+#    aciklama: "PHYS 431 için tuttuğum özet notlar"
+#    kategori: "Ders notları"
+# ─────────────────────────────────────────────
+
+[]

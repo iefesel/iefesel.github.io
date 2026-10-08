@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────
+#  PROFİL — sol sütundaki bilgiler ve iletişim
+#  Düzenleme ipucu: girintileri (boşlukları) bozma,
+#  metinleri tırnak içinde bırak.
+# ─────────────────────────────────────────────
+
+isim: "İbrahim Efe Sel"
+kisa_isim: "Efe"
+bas_harfler: "ES"
+foto: "/assets/foto.jpg"     # Fotoğrafı kaldırmak için: foto: ""
+tanitim: "ODTÜ Fizik lisans öğrencisi. Parçacık fiziği ve hızlandırıcı teknolojileriyle ilgileniyorum."
+
+# Hakkımda sayfasındaki metin. Paragraflar arasında bir boş satır bırak.
+# Her satırın başındaki 2 boşluğu koru. **kalın**, *italik*, [link](adres) yazabilirsin.
+hakkimda: |
+  Orta Doğu Teknik Üniversitesi'nde fizik lisans öğrencisiyim. Temel fizik kuramlarını ve laboratuvar uygulamalarını kapsayan bir eğitim alıyorum.
+
+  Kariyerimi parçacık fiziği, yüksek enerji fiziği ve hızlandırıcı teknolojileri alanlarında araştırma yaparak şekillendirmek istiyorum. Matematiğe ve kuantum mekaniğine olan ilgim, bu alanlar için gereken analitik düşünme ve problem çözme becerilerimi geliştirmemde bana yol gösteriyor.
+
+  Bu site, öğrendiklerimi ve üzerinde çalıştıklarımı not ettiğim yer.
+
+bilgiler:
+  - "Ankara, Türkiye"
+  - "ODTÜ · Fizik"
+
+# Sol sütundaki sosyal medya linkleri
+sosyal:
+  - ad: "LinkedIn"
+    url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395"
+  - ad: "GitHub"
+    url: "https://github.com/iefesel"
+  - ad: "X"
+    url: "https://x.com/iefesel"
+
+# İletişim sayfası
+iletisim_metni: "Bir soru, öneri ya da iş birliği için yazabilirsin."
+iletisim:
+  - ad: "E-posta"
+    deger: "efe.sel@metu.edu.tr"
+    kopyala: true
+  - ad: "LinkedIn"
+    deger: "ibrahim-efe-sel-292746395"
+    url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395"
+  - ad: "GitHub"
+    deger: "github.com/iefesel"
+    url: "https://github.com/iefesel"

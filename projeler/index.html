@@ -1,0 +1,26 @@
+---
+layout: default
+title: Projeler
+bolum: projeler
+---
+{%- assign projeler = site.data.projeler | where_exp: "p", "p.taslak != true" -%}
+<p class="eyebrow">Projeler</p>
+<h1 class="h">Üzerinde çalıştıklarım</h1>
+{%- if projeler.size == 0 %}
+<p class="empty">Projeler yakında eklenecek.</p>
+{%- else %}
+<div class="projects">
+{%- for p in projeler %}
+  <article class="project">
+    <span class="year">{{ p.yil }}</span>
+    <div><h2 class="h3">{{ p.baslik }}</h2><p>{{ p.aciklama }}</p></div>
+    <div class="foot"><span class="status">{{ p.durum }}</span>
+      {%- if p.url and p.url != "" %}
+      {%- assign dis = p.url | slice: 0, 4 -%}
+      <a href="{% if dis == 'http' %}{{ p.url }}{% else %}{{ p.url | relative_url }}{% endif %}"{% if dis == 'http' %} target="_blank" rel="noopener"{% endif %}>Görüntüle{% if dis == 'http' %} ↗{% endif %}</a>
+      {%- endif %}
+    </div>
+  </article>
+{%- endfor %}
+</div>
+{%- endif %}

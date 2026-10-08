@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────
+#  LİNKLER — "Linkler" sayfasında gruplar halinde görünür
+#  Yeni grup: "- grup:" bloğunu kopyala.
+#  Yeni link: "- ad: / url: / aciklama:" üçlüsünü kopyala.
+#  aciklama: isteğe bağlı, boş bırakabilirsin.
+# ─────────────────────────────────────────────
+
+- grup: "Parçacık fiziği ve hızlandırıcılar"
+  linkler:
+    - ad: "CERN"
+      url: "https://home.cern"
+      aciklama: "Avrupa Nükleer Araştırma Merkezi"
+    - ad: "Particle Data Group"
+      url: "https://pdg.lbl.gov"
+      aciklama: "Parçacık özellikleri ve fizik incelemeleri"
+    - ad: "INSPIRE-HEP"
+      url: "https://inspirehep.net"
+      aciklama: "Yüksek enerji fiziği literatür veritabanı"
+
+- grup: "Makaleler ve ders kaynakları"
+  linkler:
+    - ad: "arXiv — hep-ph"
+      url: "https://arxiv.org/list/hep-ph/new"
+      aciklama: "Yüksek enerji fiziği ön baskıları"
+    - ad: "MIT OpenCourseWare — Fizik"
+      url: "https://ocw.mit.edu/search/?d=Physics"
+      aciklama: "Ücretsiz ders notları ve videolar"
