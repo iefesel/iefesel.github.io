@@ -3,13 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Efe Sel</title>
-<meta name="description" content="Efe Sel — kişisel site: hakkımda, blog yazıları, projeler ve iletişim.">
+<title>İbrahim Efe Sel</title>
+<meta name="description" content="İbrahim Efe Sel — ODTÜ Fizik lisans öğrencisi. Parçacık fiziği, yüksek enerji fiziği ve hızlandırıcı teknolojileri üzerine notlar, yazılar ve özgeçmiş.">
+<meta name="author" content="İbrahim Efe Sel">
+<link rel="canonical" href="https://iefesel.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="İbrahim Efe Sel">
+<meta property="og:title" content="İbrahim Efe Sel">
+<meta property="og:description" content="ODTÜ Fizik lisans öğrencisi. Parçacık fiziği, yüksek enerji fiziği ve hızlandırıcı teknolojileri.">
+<meta property="og:url" content="https://iefesel.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12151a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f5c85'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23ffffff'%3EE%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"İbrahim Efe Sel","url":"https://iefesel.github.io/",
+ "affiliation":{"@type":"CollegeOrUniversity","name":"Orta Doğu Teknik Üniversitesi (ODTÜ)"},
+ "knowsAbout":["Parçacık fiziği","Yüksek enerji fiziği","Hızlandırıcı fiziği","Kuantum bilgi kuramı"],
+ "sameAs":["https://www.linkedin.com/in/ibrahim-efe-sel-292746395","https://github.com/iefesel"]}
+</script>
+<script>
+/* Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) */
+try { var t = localStorage.getItem("tema"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: sabit sol kimlik sütunu (isim, kısa tanım, linkler) + sağda sekmeli içerik; telefonda tek sütun. */
+/* Layout: sabit sol kimlik sütunu (fotoğraf, isim, linkler) + sağda sekmeli içerik; telefonda kompakt başlık + tek sütun. */
 :root {
   --bg: #f7f8fa;
   --surface: #ffffff;
@@ -33,6 +55,7 @@
   --bg: #12151a; --surface: #191d24; --fg: #e7e9ee; --muted: #9aa3b2;
   --line: #2a303a; --accent: #7fb6dc; --accent-soft: #1d2b38; color-scheme: dark;
 }
+:root[data-theme="light"] { color-scheme: light; }
 
 * { box-sizing: border-box; }
 body {
@@ -43,6 +66,8 @@ body {
 }
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--radius); z-index: 10; }
+.skip:focus { left: 16px; }
 
 .shell {
   max-width: 1040px; margin: 0 auto;
@@ -53,13 +78,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* --- Sol sütun --- */
 .id { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); align-self: start; display: grid; gap: 22px; }
 .avatar {
-  width: 96px; height: 96px; border-radius: 50%;
+  width: 112px; height: 112px; border-radius: 50%;
   background: var(--accent-soft); color: var(--accent);
   display: grid; place-items: center; overflow: hidden;
   font-family: var(--font-display); font-size: 40px; line-height: 1;
   border: 1px solid var(--line);
 }
-.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .name { font-family: var(--font-display); font-weight: 400; font-size: 44px; line-height: 1.02; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
 .tagline { margin: -10px 0 0; color: var(--muted); font-size: 15px; }
 .meta { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
@@ -68,7 +93,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .links a:hover { text-decoration: underline; }
 
 /* --- Gezinme --- */
-nav.tabs { display: flex; flex-wrap: wrap; gap: 4px 26px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px 26px; border-bottom: 1px solid var(--line); margin-bottom: 40px; scroll-margin-top: 12px; }
 nav.tabs a {
   color: var(--muted); text-decoration: none; padding-block: 10px; margin-bottom: -1px;
   font-size: 15px; font-weight: 500; border-bottom: 2px solid transparent;
@@ -77,7 +102,6 @@ nav.tabs a:hover { color: var(--fg); }
 nav.tabs a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent); }
 
 main { min-width: 0; }
-section[hidden] { display: none; }
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
 h2 { font-family: var(--font-display); font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 18px; text-wrap: balance; }
 h3 { font-size: 17px; font-weight: 600; margin: 0; line-height: 1.4; }
@@ -88,10 +112,16 @@ h3 { font-size: 17px; font-weight: 600; margin: 0; line-height: 1.4; }
 .prose li { margin-bottom: 0.35em; }
 .prose blockquote { margin: 1.4em 0; padding-left: 18px; border-left: 2px solid var(--line); color: var(--muted); font-style: italic; }
 
-/* --- Hakkımda --- */
-.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 32px 0 0; max-width: 64ch; }
-.facts dt { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); padding-top: 2px; }
-.facts dd { margin: 0; }
+/* --- Özgeçmiş blokları --- */
+.cv { display: grid; gap: 40px; margin-top: 48px; max-width: 68ch; }
+.cv-block h3.cv-title { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+.cv-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 20px; padding-block: 12px; }
+.cv-row + .cv-row { border-top: 1px dashed var(--line); }
+.cv-when { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.cv-what { font-weight: 500; }
+.cv-note { color: var(--muted); font-size: 15px; margin-top: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; margin: 0; list-style: none; padding-left: 0; }
+.chip { font-size: 14.5px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 12px; }
 .section-sub { margin-top: 56px; }
 
 /* --- Blog listesi --- */
@@ -107,12 +137,14 @@ h3 { font-size: 17px; font-weight: 600; margin: 0; line-height: 1.4; }
 .posts p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .tag { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; }
+.empty { color: var(--muted); max-width: 64ch; }
 
 /* --- Tek yazı --- */
 .back { font-family: var(--font-mono); font-size: 13px; text-decoration: none; display: inline-block; margin-bottom: 28px; }
 .post-head { margin-bottom: 28px; max-width: 64ch; }
 .post-head h2 { font-size: 40px; margin-bottom: 10px; }
 .post-head .date { padding: 0; }
+.post-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; max-width: 64ch; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px; }
 
 /* --- Projeler --- */
 .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
@@ -126,43 +158,50 @@ h3 { font-size: 17px; font-weight: 600; margin: 0; line-height: 1.4; }
 .status { font-family: var(--font-mono); font-size: 11.5px; padding: 1px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
 
 /* --- İletişim --- */
-.contact { display: grid; gap: 0; max-width: 560px; margin-top: 8px; }
+.contact { display: grid; max-width: 560px; margin-top: 8px; }
 .contact .item { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding-block: 14px; border-top: 1px solid var(--line); }
 .contact .item:last-child { border-bottom: 1px solid var(--line); }
 .contact .label { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
-.contact .value { overflow-wrap: anywhere; user-select: all; }
-.copy {
+.contact .value { overflow-wrap: anywhere; }
+.btn {
   font: 500 12.5px var(--font-mono); color: var(--accent); background: transparent;
   border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 10px; cursor: pointer;
 }
-.copy:hover { border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); }
 
-footer { max-width: 1040px; margin: 0 auto; padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+footer { max-width: 1040px; margin: 0 auto; padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+footer .right { display: flex; align-items: center; gap: 14px; }
 
 .fade { animation: fade .35s ease both; }
 @keyframes fade { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .fade { animation: none; } }
 
 @media (max-width: 820px) {
-  .shell { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 40px 32px; }
-  .id { position: static; }
-  .name { font-size: 40px; }
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 32px 32px; }
+  .id { position: static; grid-template-columns: 76px minmax(0, 1fr); column-gap: 16px; row-gap: 12px; align-items: center; }
+  .avatar { width: 76px; height: 76px; grid-row: 1 / 3; font-size: 30px; }
+  .name { font-size: 32px; align-self: end; }
+  .tagline { margin: 0; align-self: start; grid-column: 2; font-size: 14.5px; line-height: 1.5; }
+  .meta, .links { grid-column: 1 / -1; }
+  .meta { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+  nav.tabs { margin-bottom: 28px; }
 }
 @media (max-width: 520px) {
-  .posts a.row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
-  .contact .item { grid-template-columns: minmax(0, 1fr) auto; }
+  nav.tabs { gap: 4px 20px; }
+  .posts a.row, .cv-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .contact .item { grid-template-columns: minmax(0, 1fr) auto; row-gap: 2px; }
   .contact .label { grid-column: 1 / -1; }
-  .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .facts dd { margin-bottom: 12px; }
   .post-head h2 { font-size: 32px; }
+  h2 { font-size: 30px; }
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
 <div class="shell">
   <aside class="id" id="id"></aside>
-  <main>
-    <nav class="tabs" aria-label="Bölümler">
+  <main id="icerik">
+    <nav class="tabs" id="tabs" aria-label="Bölümler">
       <a href="#hakkimda" data-tab="hakkimda">Hakkımda</a>
       <a href="#blog" data-tab="blog">Blog</a>
       <a href="#projeler" data-tab="projeler">Projeler</a>
@@ -177,35 +216,57 @@ footer { max-width: 1040px; margin: 0 auto; padding-block: 28px 40px; border-top
 </div>
 <footer>
   <span id="foot-left"></span>
-  <span>iefesel.com</span>
+  <span class="right">
+    <button class="btn" id="theme-btn" type="button">Tema: Sistem</button>
+    <span id="foot-domain"></span>
+  </span>
 </footer>
 
 <script>
 /* =====================================================================
    SİTE İÇERİĞİ — Sadece bu bölümü düzenlemen yeterli.
-   Metinler örnektir; kendi bilgilerinle değiştir.
+   taslak: true olan yazı ve projeler sitede GÖRÜNMEZ. Hazır olunca false yap.
    ===================================================================== */
 const SITE = {
-  name: "Efe Sel",
+  name: "İbrahim Efe Sel",
+  shortName: "Efe",
   initials: "ES",
-  photo: "",                       // Örn: "foto.jpg" — boş kalırsa baş harfler görünür
-  tagline: "Öğrenci. Öğrendiklerimi buraya not ediyorum.",
-  meta: ["İstanbul, Türkiye", "Öğrenci · Okul / Bölüm adı"],
+  domain: "iefesel.github.io",
+  photo: "data:image/jpeg;base64,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",              // Fotoğrafı kaldırmak için "" yap
+  tagline: "ODTÜ Fizik lisans öğrencisi. Parçacık fiziği ve hızlandırıcı teknolojileriyle ilgileniyorum.",
+  meta: ["Ankara, Türkiye", "ODTÜ · Fizik"],
   links: [
-    { label: "GitHub",    url: "https://github.com/iefesel" },
     { label: "LinkedIn",  url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395" },
+    { label: "GitHub",    url: "https://github.com/iefesel" },
     { label: "X",         url: "https://x.com/iefesel" }
   ],
 
   about: `
-    <p>Şu an öğrenciyim ve boş zamanlarımın çoğunu yeni bir şeyler öğrenmeye, denemeye ve bazen de bozup yeniden yapmaya harcıyorum.</p>
-    <p>Bu site benim dijital defterim. Okuduğum, izlediğim, üzerinde çalıştığım şeyleri yazıya döküyorum. Bir konuyu başkasına anlatabilecek kadar yazmak, onu gerçekten anlayıp anlamadığımı görmenin en iyi yolu.</p>
-    <p>Burada ders notlarından küçük projelere, kitap önerilerinden günlük düşüncelere kadar her şeyi bulabilirsin.</p>`,
-  facts: [
-    ["Okul",          "Okul adı — Bölüm, sınıf"],
-    ["İlgi alanları", "Teknoloji, yazılım, kitaplar, fotoğrafçılık"],
-    ["Şu an",         "Yeni dönemin derslerine ve bu siteye odaklanıyorum"],
-    ["Diller",        "Türkçe (ana dil), İngilizce"]
+    <p>Orta Doğu Teknik Üniversitesi'nde fizik lisans öğrencisiyim. Temel fizik kuramlarını ve laboratuvar uygulamalarını kapsayan bir eğitim alıyorum.</p>
+    <p>Kariyerimi parçacık fiziği, yüksek enerji fiziği ve hızlandırıcı teknolojileri alanlarında araştırma yaparak şekillendirmek istiyorum. Matematiğe ve kuantum mekaniğine olan ilgim, bu alanlar için gereken analitik düşünme ve problem çözme becerilerimi geliştirmemde bana yol gösteriyor.</p>
+    <p>Bu site, öğrendiklerimi ve üzerinde çalıştıklarımı not ettiğim yer.</p>`,
+
+  cv: [
+    { title: "Eğitim", rows: [
+      { when: "2022 – 2027", what: "Orta Doğu Teknik Üniversitesi (ODTÜ)", note: "Fizik, Lisans · Ankara · Mezuniyet 2027 (beklenen)" },
+      { when: "2018 – 2022", what: "Zile Fen Lisesi", note: "Tokat" }
+    ]},
+    { title: "Akademik ilgi alanları", chips: [
+      "Parçacık fiziği", "Yüksek enerji fiziği", "Hızlandırıcı fiziği ve teknolojileri",
+      "Kuantum kriptografi", "Kuantum bilgi kuramı"
+    ]},
+    { title: "İlgili dersler", chips: [
+      "Kuantum Fiziği", "Kuantum Mekaniği", "İstatistiksel Termodinamik", "Fizikte Matematiksel Yöntemler"
+    ]},
+    { title: "Beceriler", rows: [
+      { when: "Programlama", what: "Python, MATLAB, C" },
+      { when: "Diller", what: "Türkçe (ana dil), İngilizce (C1)" },
+      { when: "Hobiler", what: "Keman" }
+    ]},
+    { title: "Deneyim", rows: [
+      { when: "Yaz 2024", what: "Wentworth by the Sea — Marina Suites, bakım", note: "New Hampshire, ABD · Uluslararası bir ekiple çalışarak yüksek hizmet standartlarının korunmasına ve yoğun, değişken bir iş akışına uyum sağladım." },
+      { when: "Yaz 2024", what: "Water Country — Park hizmetleri", note: "New Hampshire, ABD · Hızlı tempolu bir ortamda farklı ülkelerden gelen ziyaretçilerle etkili iletişim kurdum." }
+    ]}
   ],
 
   // Yeni yazı eklemek için bu listeye bir öğe ekle. slug: sadece küçük harf, rakam ve tire.
@@ -213,69 +274,48 @@ const SITE = {
     {
       slug: "ilk-web-sitem",
       title: "İlk kişisel web sitemi kurdum",
-      date: "2026-10-01",
+      date: "2026-10-08",
       tags: ["web", "günlük"],
-      summary: "Neden kendi adıma bir site açtım ve onu nasıl kurdum.",
+      summary: "Neden kendi adıma bir site açtım ve burada neler paylaşacağım.",
       body: `
-        <p>Uzun süredir kendime ait, sosyal medyadan bağımsız bir köşem olsun istiyordum. Bugün sonunda <strong>iefesel.com</strong> yayında.</p>
+        <p>Uzun süredir kendime ait, sosyal medyadan bağımsız bir köşem olsun istiyordum. Bugün sonunda sitem yayında.</p>
         <h3>Neden bir site?</h3>
-        <p>Sosyal medyada paylaşılan her şey birkaç gün içinde akışta kayboluyor. Bir sitede ise yazdıklarım düzenli kalıyor, istediğim zaman geri dönüp bakabiliyorum ve birine “şuna bak” diye tek bir link gönderebiliyorum.</p>
-        <h3>Planım</h3>
+        <p>Sosyal medyada paylaşılan her şey birkaç gün içinde akışta kayboluyor. Bir sitede ise yazdıklarım düzenli kalıyor, istediğim zaman geri dönüp bakabiliyorum ve birine tek bir link gönderebiliyorum.</p>
+        <h3>Burada neler olacak?</h3>
         <ul>
-          <li>Ayda en az iki yazı yazmak</li>
-          <li>Üzerinde çalıştığım projeleri burada toplamak</li>
-          <li>Siteyi zamanla kendim geliştirmek</li>
+          <li>Fizik derslerinden ve okuduklarımdan notlar</li>
+          <li>Parçacık fiziği ve hızlandırıcılar üzerine öğrendiklerim</li>
+          <li>Python ve MATLAB ile yaptığım küçük hesaplamalar ve projeler</li>
         </ul>
-        <p>Okuduğun için teşekkürler. Bir sonraki yazıda görüşmek üzere.</p>`
+        <p>Okuduğun için teşekkürler.</p>`
     },
     {
-      slug: "calisma-duzenim",
-      title: "Sınav dönemi için çalışma düzenim",
-      date: "2026-09-18",
-      tags: ["okul", "verimlilik"],
-      summary: "Pomodoro, aralıklı tekrar ve telefonu başka odaya koymak üzerine.",
+      taslak: true,   // ÖRNEK ŞABLON — kendi yazınla değiştirip false yap
+      slug: "ornek-yazi",
+      title: "Yazı başlığı",
+      date: "2026-10-15",
+      tags: ["fizik"],
+      summary: "Listede görünecek bir cümlelik özet.",
       body: `
-        <p>Geçen dönem en çok zorlandığım şey çalışmaya oturmak değil, oturduktan sonra odağımı korumaktı. Bu dönem birkaç basit kuralla başlıyorum.</p>
-        <h3>1. 25 dakika çalış, 5 dakika ara</h3>
-        <p>Pomodoro tekniği kulağa basit geliyor ama asıl faydası başlamayı kolaylaştırması. “Sadece 25 dakika” demek, “bütün akşam çalışacağım” demekten çok daha az korkutucu.</p>
-        <h3>2. Aralıklı tekrar</h3>
-        <p>Bir konuyu öğrendiğim gün, üç gün sonra ve bir hafta sonra kısaca tekrar ediyorum. Sınavdan önceki gece her şeyi baştan okumak yerine bu çok daha kalıcı oluyor.</p>
-        <h3>3. Telefon başka odada</h3>
-        <blockquote>Telefon masadayken bakmıyor olsam bile aklımın bir köşesi onda.</blockquote>
-        <p>Bu üçünü bir ay deneyip sonuçlarını burada paylaşacağım.</p>`
-    },
-    {
-      slug: "bu-yaz-okuduklarim",
-      title: "Bu yaz okuduğum üç kitap",
-      date: "2026-08-30",
-      tags: ["kitap"],
-      summary: "Yaz tatilinde okuduklarım ve her birinden aklımda kalan tek fikir.",
-      body: `
-        <p>Bu yaz kendime “her hafta en az 50 sayfa” hedefi koydum. Hedefi her hafta tutturamasam da üç kitabı bitirdim.</p>
-        <p>Her kitap için uzun bir özet yerine, aklımda kalan tek bir fikri yazmayı tercih ediyorum. Böylece hem kısa oluyor hem de gerçekten neyi hatırladığımı görüyorum.</p>
-        <ul>
-          <li><strong>Kitap 1</strong> — aklımda kalan fikir</li>
-          <li><strong>Kitap 2</strong> — aklımda kalan fikir</li>
-          <li><strong>Kitap 3</strong> — aklımda kalan fikir</li>
-        </ul>
-        <p>Önerin varsa iletişim sayfasından yazabilirsin.</p>`
+        <p>Yazının ilk paragrafı.</p>
+        <h3>Ara başlık</h3>
+        <p>Devam eden metin. Liste için &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt; kullanabilirsin.</p>`
     }
   ],
 
   projects: [
-    { title: "iefesel.com", year: "2026", status: "Yayında",
-      desc: "Şu an baktığın site. Hakkımda, blog, projeler ve iletişim bölümlerinden oluşan kişisel web sitem.",
-      url: "https://iefesel.com" },
-    { title: "Ders notları arşivi", year: "2026", status: "Devam ediyor",
-      desc: "Derslerde aldığım notları düzenli ve aranabilir bir hale getirdiğim kişisel arşiv.", url: "" },
-    { title: "Proje adı", year: "2025", status: "Tamamlandı",
-      desc: "Burada yaptığın bir okul ödevini, kulüp çalışmasını ya da hobi projeni kısaca anlat.", url: "" }
+    { title: "Kişisel web sitesi", year: "2026", status: "Yayında",
+      desc: "Şu an baktığın site. Hakkımda, özgeçmiş, blog ve iletişim bölümlerinden oluşuyor.",
+      url: "https://github.com/iefesel/iefesel.github.io" },
+    { taslak: true,  // ÖRNEK ŞABLON
+      title: "Proje adı", year: "2026", status: "Devam ediyor",
+      desc: "Bir ders projesini, Python/MATLAB çalışmanı ya da laboratuvar deneyini kısaca anlat.", url: "" }
   ],
 
   contact: [
-    { label: "E-posta",   value: "merhaba@iefesel.com", copy: true },
-    { label: "LinkedIn",  value: "linkedin.com/in/ibrahim-efe-sel-292746395", url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395" },
-    { label: "GitHub",    value: "github.com/iefesel", url: "https://github.com/iefesel" }
+    { label: "E-posta",  value: "efe.sel@metu.edu.tr", copy: true },
+    { label: "LinkedIn", value: "ibrahim-efe-sel-292746395", url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395" },
+    { label: "GitHub",   value: "github.com/iefesel", url: "https://github.com/iefesel" }
   ]
 };
 /* ===================================================================== */
@@ -285,69 +325,87 @@ const fmtDate = iso => { const [y,m,d] = iso.split("-").map(Number); return `${d
 const readTime = html => Math.max(1, Math.round(html.replace(/<[^>]+>/g," ").trim().split(/\s+/).length / 200));
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ext = url => `href="${esc(url)}" target="_blank" rel="noopener"`;
-const postsSorted = [...SITE.posts].sort((a,b) => b.date.localeCompare(a.date));
+const live = arr => arr.filter(x => !x.taslak);
+const POSTS = live(SITE.posts).sort((a,b) => b.date.localeCompare(a.date));
+const PROJECTS = live(SITE.projects);
 
 function renderId() {
-  const av = SITE.photo ? `<img src="${esc(SITE.photo)}" alt="${esc(SITE.name)}">` : esc(SITE.initials);
+  const av = SITE.photo
+    ? `<img src="${esc(SITE.photo)}" alt="${esc(SITE.name)}" width="112" height="112">`
+    : `<span aria-hidden="true">${esc(SITE.initials)}</span>`;
   document.getElementById("id").innerHTML = `
-    <div class="avatar" aria-hidden="${SITE.photo ? "false" : "true"}">${av}</div>
+    <div class="avatar">${av}</div>
     <h1 class="name">${esc(SITE.name)}</h1>
     <p class="tagline">${esc(SITE.tagline)}</p>
     <ul class="meta">${SITE.meta.map(m => `<li>${esc(m)}</li>`).join("")}</ul>
     <div class="links">${SITE.links.map(l => `<a ${ext(l.url)}>${esc(l.label)} ↗</a>`).join("")}</div>`;
   document.getElementById("foot-left").textContent = `© ${new Date().getFullYear()} ${SITE.name}`;
+  document.getElementById("foot-domain").textContent = SITE.domain;
 }
 
 function postList(items) {
+  if (!items.length) return `<p class="empty">Henüz yazı yok. İlk yazı yakında burada olacak.</p>`;
   return `<ul class="posts">${items.map(p => `
     <li><a class="row" href="#${esc(p.slug)}">
       <span class="date">${fmtDate(p.date)}</span>
-      <span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
-        <span class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span></span>
+      <div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
+        <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div></div>
     </a></li>`).join("")}</ul>`;
+}
+
+function cvBlock(b) {
+  const body = b.chips
+    ? `<ul class="chips">${b.chips.map(c => `<li class="chip">${esc(c)}</li>`).join("")}</ul>`
+    : b.rows.map(r => `
+      <div class="cv-row">
+        <span class="cv-when">${esc(r.when)}</span>
+        <div><div class="cv-what">${esc(r.what)}</div>${r.note ? `<div class="cv-note">${esc(r.note)}</div>` : ""}</div>
+      </div>`).join("");
+  return `<div class="cv-block"><h3 class="cv-title">${esc(b.title)}</h3>${body}</div>`;
 }
 
 function renderStatic() {
   document.getElementById("view-hakkimda").innerHTML = `
     <p class="eyebrow">Hakkımda</p>
-    <h2>Merhaba, ben ${esc(SITE.name.split(" ")[0])}.</h2>
+    <h2>Merhaba, ben ${esc(SITE.shortName)}.</h2>
     <div class="prose">${SITE.about}</div>
-    <dl class="facts">${SITE.facts.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
-    <div class="section-sub">
+    <div class="cv">${SITE.cv.map(cvBlock).join("")}</div>
+    ${POSTS.length ? `<div class="section-sub">
       <p class="eyebrow">Son yazılar</p>
-      ${postList(postsSorted.slice(0, 3))}
-      <p><a href="#blog">Tüm yazılar →</a></p>
-    </div>`;
+      ${postList(POSTS.slice(0, 3))}
+      ${POSTS.length > 3 ? `<p><a href="#blog">Tüm yazılar →</a></p>` : ""}
+    </div>` : ""}`;
 
   document.getElementById("view-blog").innerHTML = `
-    <p class="eyebrow">Blog · ${postsSorted.length} yazı</p>
+    <p class="eyebrow">Blog · ${POSTS.length} yazı</p>
     <h2>Yazılar</h2>
-    ${postList(postsSorted)}`;
+    ${postList(POSTS)}`;
 
   document.getElementById("view-projeler").innerHTML = `
     <p class="eyebrow">Projeler</p>
     <h2>Üzerinde çalıştıklarım</h2>
-    <div class="projects">${SITE.projects.map(p => `
+    ${PROJECTS.length ? `<div class="projects">${PROJECTS.map(p => `
       <article class="project">
         <span class="year">${esc(p.year)}</span>
         <div><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p></div>
         <div class="foot"><span class="status">${esc(p.status)}</span>
           ${p.url ? `<a ${ext(p.url)}>Görüntüle ↗</a>` : ""}</div>
-      </article>`).join("")}</div>`;
+      </article>`).join("")}</div>` : `<p class="empty">Projeler yakında eklenecek.</p>`}`;
 
   document.getElementById("view-iletisim").innerHTML = `
     <p class="eyebrow">İletişim</p>
     <h2>Bana ulaş</h2>
-    <div class="prose"><p>Bir soru, öneri ya da sadece merhaba demek için yazabilirsin. Genellikle birkaç gün içinde dönüş yapıyorum.</p></div>
+    <div class="prose"><p>Bir soru, öneri ya da iş birliği için yazabilirsin.</p></div>
     <div class="contact">${SITE.contact.map((c, i) => `
       <div class="item">
         <span class="label">${esc(c.label)}</span>
         <span class="value">${c.url ? `<a ${ext(c.url)}>${esc(c.value)}</a>` : esc(c.value)}</span>
-        ${c.copy ? `<button class="copy" id="copy-${i}" data-v="${esc(c.value)}">Kopyala</button>` : "<span></span>"}
+        ${c.copy ? `<button class="btn copy" type="button" id="copy-${i}" data-v="${esc(c.value)}">Kopyala</button>` : "<span></span>"}
       </div>`).join("")}</div>`;
 }
 
 function renderPost(p) {
+  const i = POSTS.indexOf(p), newer = POSTS[i - 1], older = POSTS[i + 1];
   document.getElementById("view-yazi").innerHTML = `
     <a class="back" href="#blog">← Tüm yazılar</a>
     <header class="post-head">
@@ -355,12 +413,16 @@ function renderPost(p) {
       <span class="date">${fmtDate(p.date)} · ${readTime(p.body)} dk okuma</span>
       <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
     </header>
-    <article class="prose">${p.body}</article>`;
+    <article class="prose">${p.body}</article>
+    ${newer || older ? `<nav class="post-nav" aria-label="Diğer yazılar">
+      <span>${older ? `<a href="#${esc(older.slug)}">← ${esc(older.title)}</a>` : ""}</span>
+      <span>${newer ? `<a href="#${esc(newer.slug)}">${esc(newer.title)} →</a>` : ""}</span>
+    </nav>` : ""}`;
 }
 
 function route() {
   const key = decodeURIComponent(location.hash.slice(1)) || "hakkimda";
-  const post = SITE.posts.find(p => p.slug === key);
+  const post = POSTS.find(p => p.slug === key);
   const view = post ? "yazi" : (["hakkimda","blog","projeler","iletisim"].includes(key) ? key : "hakkimda");
   if (post) { renderPost(post); document.title = `${post.title} · ${SITE.name}`; }
   else document.title = SITE.name;
@@ -374,13 +436,20 @@ function route() {
     a.dataset.tab === activeTab ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
 }
 
+/* Sekme değişince: masaüstünde sayfanın başına, telefonda sekmelerin başına kaydır */
+function scrollAfterRoute() {
+  const nav = document.getElementById("tabs");
+  const stacked = matchMedia("(max-width: 820px)").matches;
+  if (stacked) { if (nav.getBoundingClientRect().top < 0) nav.scrollIntoView(); }
+  else window.scrollTo({ top: 0 });
+}
+
+/* Kopyala düğmesi */
 document.addEventListener("click", e => {
   const b = e.target.closest(".copy"); if (!b) return;
   const v = b.dataset.v;
   const done = () => { b.textContent = "Kopyalandı"; setTimeout(() => b.textContent = "Kopyala", 1600); };
-  try {
-    navigator.clipboard.writeText(v).then(done, () => selectText(b));
-  } catch { selectText(b); }
+  try { navigator.clipboard.writeText(v).then(done, () => selectText(b)); } catch (err) { selectText(b); }
 });
 function selectText(b) {
   const el = b.parentElement.querySelector(".value");
@@ -388,8 +457,22 @@ function selectText(b) {
   const s = getSelection(); s.removeAllRanges(); s.addRange(r);
 }
 
-renderId(); renderStatic(); route();
-addEventListener("hashchange", () => { route(); window.scrollTo({ top: 0 }); });
+/* Tema düğmesi: Sistem → Açık → Koyu */
+const THEMES = [["", "Sistem"], ["light", "Açık"], ["dark", "Koyu"]];
+const themeBtn = document.getElementById("theme-btn");
+function currentTheme() { return document.documentElement.getAttribute("data-theme") || ""; }
+function paintThemeBtn() { themeBtn.textContent = "Tema: " + (THEMES.find(t => t[0] === currentTheme()) || THEMES[0])[1]; }
+themeBtn.addEventListener("click", () => {
+  const i = THEMES.findIndex(t => t[0] === currentTheme());
+  const next = THEMES[(i + 1) % THEMES.length][0];
+  if (next) document.documentElement.setAttribute("data-theme", next);
+  else document.documentElement.removeAttribute("data-theme");
+  try { next ? localStorage.setItem("tema", next) : localStorage.removeItem("tema"); } catch (err) {}
+  paintThemeBtn();
+});
+
+renderId(); renderStatic(); route(); paintThemeBtn();
+addEventListener("hashchange", () => { route(); scrollAfterRoute(); });
 </script>
 </body>
 </html>
