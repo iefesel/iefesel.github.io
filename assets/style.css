@@ -145,7 +145,7 @@ h1.h + .doc-group { margin-top: 28px; }
 .docs li + li, .link-list li + li { border-top: 1px dashed var(--line); }
 .doc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding-block: 14px; color: inherit; text-decoration: none; }
 .doc:hover .doc-title { color: var(--accent); }
-.doc-icon { font-size: 14px; color: var(--accent); background: var(--accent-soft); border-radius: 3px; padding: 3px 8px; }
+.doc-icon { min-width: 3.6em; text-align: center; font-size: 14px; color: var(--accent); background: var(--accent-soft); border-radius: 3px; padding: 3px 8px; }
 .doc-body { display: grid; gap: 2px; min-width: 0; }
 .doc-title { font-weight: 700; overflow-wrap: anywhere; }
 .doc-note { color: var(--muted); font-size: 17px; }
