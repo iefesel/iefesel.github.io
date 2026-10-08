@@ -11,18 +11,15 @@
     - when: "2022 – 2027"
       what: "Middle East Technical University (METU)"
       details: "B.Sc. in Physics · Ankara · Expected graduation 2027"
-    - when: "2018 – 2022"
-      what: "Zile Science High School"
-      details: "Tokat, Türkiye"
+
 
 - title: "Academic interests"
   tags:
     - "Mathematical physics"
     - "Particle physics"
     - "High energy physics"
-    - "Accelerator physics and technologies"
-    - "Quantum information theory"
 
+##
 - title: "Relevant coursework"
   tags:
     - "Quantum Physics"

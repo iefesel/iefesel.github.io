@@ -28,14 +28,13 @@ social:
     url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395"
   - name: "GitHub"
     url: "https://github.com/iefesel"
-  - name: "X"
-    url: "https://x.com/iefesel"
+
 
 # Contact page
 contact_text: "Feel free to reach out with questions, suggestions or collaboration ideas."
 contact:
   - label: "Email"
-    value: "efe.sel@metu.edu.tr"
+    value: "ibrahimefesel@icloud.com"
     copy: true
   - label: "LinkedIn"
     value: "ibrahim-efe-sel-292746395"
