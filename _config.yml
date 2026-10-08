@@ -1,11 +1,11 @@
-# Site ayarları — genelde dokunmana gerek yok.
+# Site settings — you rarely need to touch this file.
 title: İbrahim Efe Sel
-description: ODTÜ Fizik lisans öğrencisi. Matematiksel fizik, parçacık fiziği ve hızlandırıcı teknolojileri üzerine notlar, yazılar ve belgeler.
+description: Physics undergraduate at METU. Notes, writing and documents on mathematical physics, particle physics and accelerator technologies.
 url: https://iefesel.github.io
 baseurl: ""
-lang: tr
+lang: en
 
-# Blog yazılarının adresi: iefesel.github.io/blog/yazi-adi/
+# Blog post addresses look like: iefesel.github.io/blog/post-name/
 permalink: /blog/:title/
 
 markdown: kramdown
@@ -15,15 +15,14 @@ kramdown:
 timezone: Europe/Istanbul
 
 exclude:
-  - BENIOKU.md
   - README.md
   - Gemfile
   - Gemfile.lock
 
-# Yazılar otomatik olarak "yazi" düzenini kullanır
+# Every post uses the "post" layout automatically
 defaults:
   - scope:
       path: ""
       type: posts
     values:
-      layout: yazi
+      layout: post

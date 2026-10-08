@@ -1,61 +1,62 @@
 <!doctype html>
-{%- assign p = site.data.profil -%}
-{%- if page.title and page.url != "/" -%}{%- assign tam_baslik = page.title | append: " · " | append: p.isim -%}{%- else -%}{%- assign tam_baslik = p.isim -%}{%- endif -%}
-{%- assign aciklama = page.ozet | default: page.aciklama | default: site.description -%}
-<html lang="tr">
+{%- assign p = site.data.profile -%}
+{%- if page.title and page.url != "/" -%}{%- assign full_title = page.title | append: " · " | append: p.name -%}{%- else -%}{%- assign full_title = p.name -%}{%- endif -%}
+{%- assign desc = page.summary | default: page.description | default: site.description -%}
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{ tam_baslik }}</title>
-<meta name="description" content="{{ aciklama | strip_html | strip_newlines | escape }}">
-<meta name="author" content="{{ p.isim }}">
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ desc | strip_html | strip_newlines | escape }}">
+<meta name="author" content="{{ p.name }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<meta property="og:type" content="{% if page.layout == 'yazi' %}article{% else %}profile{% endif %}">
-<meta property="og:locale" content="tr_TR">
-<meta property="og:site_name" content="{{ p.isim }}">
-<meta property="og:title" content="{{ tam_baslik }}">
-<meta property="og:description" content="{{ aciklama | strip_html | strip_newlines | escape }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}profile{% endif %}">
+<meta property="og:site_name" content="{{ p.name }}">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:description" content="{{ desc | strip_html | strip_newlines | escape }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-{%- if p.foto != "" %}
-<meta property="og:image" content="{{ p.foto | absolute_url }}">
+{%- if p.photo != "" %}
+<meta property="og:image" content="{{ p.photo | absolute_url }}">
 {%- endif %}
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#12151a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f5c85'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23ffffff'%3EE%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#262a32" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%232a6496'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23ffffff'%3EE%3C/text%3E%3C/svg%3E">
 <script>
-try { var t = localStorage.getItem("tema"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" href="{{ '/assets/fonts/LM-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+{%- if page.math %}
+<script>window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] } };</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{%- endif %}
 </head>
 <body>
-<a class="skip" href="#icerik">İçeriğe geç</a>
+<a class="skip" href="#content">Skip to content</a>
 <div class="shell">
   <aside class="id">
     <div class="avatar">
-      {%- if p.foto != "" -%}
-      <img src="{{ p.foto | relative_url }}" alt="{{ p.isim }}" width="112" height="112">
+      {%- if p.photo != "" -%}
+      <img src="{{ p.photo | relative_url }}" alt="{{ p.name }}" width="120" height="120">
       {%- else -%}
-      <span aria-hidden="true">{{ p.bas_harfler }}</span>
+      <span aria-hidden="true">{{ p.initials }}</span>
       {%- endif -%}
     </div>
-    <p class="name"><a href="{{ '/' | relative_url }}">{{ p.isim }}</a></p>
-    <p class="tagline">{{ p.tanitim }}</p>
-    <ul class="meta">{% for b in p.bilgiler %}<li>{{ b }}</li>{% endfor %}</ul>
-    <div class="links">{% for s in p.sosyal %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.ad }} ↗</a>{% endfor %}</div>
+    <p class="name"><a href="{{ '/' | relative_url }}">{{ p.name }}</a></p>
+    <p class="tagline">{{ p.tagline }}</p>
+    <ul class="meta">{% for i in p.info %}<li>{{ i }}</li>{% endfor %}</ul>
+    <div class="links">{% for s in p.social %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }} ↗</a>{% endfor %}</div>
   </aside>
-  <main id="icerik">
-    {%- assign bolum = page.bolum | default: "" -%}
-    <nav class="tabs" aria-label="Bölümler">
-      <a href="{{ '/' | relative_url }}"{% if bolum == "hakkimda" %} aria-current="page"{% endif %}>Hakkımda</a>
-      <a href="{{ '/blog/' | relative_url }}"{% if bolum == "blog" or page.layout == "yazi" %} aria-current="page"{% endif %}>Blog</a>
-      <a href="{{ '/projeler/' | relative_url }}"{% if bolum == "projeler" %} aria-current="page"{% endif %}>Projeler</a>
-      <a href="{{ '/belgeler/' | relative_url }}"{% if bolum == "belgeler" %} aria-current="page"{% endif %}>Belgeler</a>
-      <a href="{{ '/linkler/' | relative_url }}"{% if bolum == "linkler" %} aria-current="page"{% endif %}>Linkler</a>
-      <a href="{{ '/iletisim/' | relative_url }}"{% if bolum == "iletisim" %} aria-current="page"{% endif %}>İletişim</a>
+  <main id="content">
+    {%- assign section = page.section | default: "" -%}
+    <nav class="tabs" aria-label="Sections">
+      <a href="{{ '/' | relative_url }}"{% if section == "about" %} aria-current="page"{% endif %}>About</a>
+      <a href="{{ '/blog/' | relative_url }}"{% if section == "blog" or page.layout == "post" %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/projects/' | relative_url }}"{% if section == "projects" %} aria-current="page"{% endif %}>Projects</a>
+      <a href="{{ '/documents/' | relative_url }}"{% if section == "documents" %} aria-current="page"{% endif %}>Documents</a>
+      <a href="{{ '/links/' | relative_url }}"{% if section == "links" %} aria-current="page"{% endif %}>Links</a>
+      <a href="{{ '/contact/' | relative_url }}"{% if section == "contact" %} aria-current="page"{% endif %}>Contact</a>
     </nav>
     <div class="page">
 {{ content }}
@@ -63,9 +64,9 @@ try { var t = localStorage.getItem("tema"); if (t === "light" || t === "dark") d
   </main>
 </div>
 <footer>
-  <span>© {{ site.time | date: "%Y" }} {{ p.isim }}</span>
+  <span>© {{ site.time | date: "%Y" }} {{ p.name }}</span>
   <span class="right">
-    <button class="btn" id="theme-btn" type="button">Tema: Sistem</button>
+    <button class="btn" id="theme-btn" type="button">Theme: System</button>
     <span>{{ site.url | remove: "https://" }}</span>
   </span>
 </footer>

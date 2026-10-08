@@ -1,0 +1,47 @@
+---
+layout: default
+title: Documents
+section: documents
+description: Lecture notes, reports and other PDF documents.
+---
+{%- comment -%}
+  This page lists every PDF in the "documents" folder automatically.
+  Optional titles/descriptions/categories: _data/documents.yml
+{%- endcomment -%}
+{%- assign folder = site.static_files | where_exp: "f", "f.path contains '/documents/'" -%}
+{%- assign lower = folder | where: "extname", ".pdf" -%}
+{%- assign upper = folder | where: "extname", ".PDF" -%}
+{%- assign pdfs = lower | concat: upper | sort: "name" -%}
+<p class="eyebrow">Documents · {{ pdfs.size }} {% if pdfs.size == 1 %}file{% else %}files{% endif %}</p>
+<h1 class="h">Documents</h1>
+{%- if pdfs.size == 0 %}
+<p class="empty">No documents yet.</p>
+{%- else %}
+{%- assign categories = "" | split: "" -%}
+{%- for f in pdfs -%}
+  {%- assign meta = site.data.documents | where: "file", f.name | first -%}
+  {%- assign c = meta.category | default: "Other" -%}
+  {%- unless categories contains c -%}{%- assign categories = categories | push: c -%}{%- endunless -%}
+{%- endfor %}
+{%- for c in categories %}
+<div class="doc-group">
+  {% if categories.size > 1 %}<h2 class="cv-title">{{ c }}</h2>{% endif %}
+  <ul class="docs">
+  {%- for f in pdfs -%}
+    {%- assign meta = site.data.documents | where: "file", f.name | first -%}
+    {%- assign fc = meta.category | default: "Other" -%}
+    {%- if fc == c %}
+    <li><a class="doc" href="{{ f.path | relative_url }}" target="_blank" rel="noopener">
+      <span class="doc-icon" aria-hidden="true">pdf</span>
+      <span class="doc-body">
+        <span class="doc-title">{% if meta.title %}{{ meta.title }}{% else %}{{ f.basename | replace: "-", " " | replace: "_", " " | capitalize }}{% endif %}</span>
+        {% if meta.description %}<span class="doc-note">{{ meta.description }}</span>{% endif %}
+      </span>
+      <span class="doc-open">open ↗</span>
+    </a></li>
+    {%- endif -%}
+  {%- endfor %}
+  </ul>
+</div>
+{%- endfor %}
+{%- endif %}

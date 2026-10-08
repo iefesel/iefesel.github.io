@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────
+#  PROFILE — the left column, the About text and the Contact page
+#  Tip: keep the indentation (spaces) as it is and keep text inside quotes.
+# ─────────────────────────────────────────────
+
+name: "İbrahim Efe Sel"
+short_name: "Efe"
+initials: "ES"
+photo: "/assets/photo.jpg"     # To hide the photo: photo: ""
+tagline: "Physics undergraduate at METU, interested in particle physics and accelerator technologies."
+
+# About text on the home page. Leave one empty line between paragraphs.
+# Keep the 2 spaces at the start of each line. You can use **bold**, *italic*, [link](address).
+about: |
+  I am an undergraduate physics student at Middle East Technical University (METU), receiving a comprehensive education in fundamental physical theories and their laboratory applications.
+
+  I aim to build a research career in particle physics, high energy physics and accelerator technologies. A particular interest in mathematics and quantum mechanics drives me to develop the analytical and problem-solving skills these fields demand.
+
+  This site is where I keep notes on what I learn and what I work on.
+
+info:
+  - "Ankara, Türkiye"
+  - "METU · Physics"
+
+# Social links in the left column
+social:
+  - name: "LinkedIn"
+    url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395"
+  - name: "GitHub"
+    url: "https://github.com/iefesel"
+  - name: "X"
+    url: "https://x.com/iefesel"
+
+# Contact page
+contact_text: "Feel free to reach out with questions, suggestions or collaboration ideas."
+contact:
+  - label: "Email"
+    value: "efe.sel@metu.edu.tr"
+    copy: true
+  - label: "LinkedIn"
+    value: "ibrahim-efe-sel-292746395"
+    url: "https://www.linkedin.com/in/ibrahim-efe-sel-292746395"
+  - label: "GitHub"
+    value: "github.com/iefesel"
+    url: "https://github.com/iefesel"

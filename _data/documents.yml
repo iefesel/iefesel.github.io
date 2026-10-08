@@ -1,0 +1,18 @@
+# ─────────────────────────────────────────────
+#  DOCUMENTS (PDFs) — OPTIONAL
+#
+#  Every PDF you upload to the "documents" folder appears on the
+#  Documents page AUTOMATICALLY. You do not need to edit this file.
+#
+#  Add an entry here only if you want a nicer title, a description
+#  or a category for a PDF. "file" must match the uploaded file name
+#  exactly (including upper/lower case).
+#
+#  Example:
+#  - file: "quantum-mechanics-notes.pdf"
+#    title: "Quantum Mechanics lecture notes"
+#    description: "Summary notes I took for PHYS 431"
+#    category: "Lecture notes"
+# ─────────────────────────────────────────────
+
+[]

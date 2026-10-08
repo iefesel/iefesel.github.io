@@ -1,65 +1,67 @@
 # iefesel.github.io
 
-İbrahim Efe Sel'in kişisel sitesi. Site, GitHub'ın kendi sistemiyle (Jekyll) otomatik oluşturulur. Bir dosyayı değiştirip **Commit changes** dediğinde site 1–2 dakika içinde güncellenir.
+Personal website of İbrahim Efe Sel, built automatically by GitHub Pages (Jekyll). Edit a file, press **Commit changes**, and the site updates within 1–2 minutes.
 
-## Neyi nereden değiştiririm?
+## Where do I change what?
 
-| Ne değiştirmek istiyorsun? | Hangi dosya? |
+| What | File |
 |---|---|
-| İsim, fotoğraf, tanıtım cümlesi, şehir, sosyal medya linkleri | `_data/profil.yml` |
-| "Hakkımda" metni | `_data/profil.yml` → `hakkimda:` kısmı |
-| İletişim bilgileri | `_data/profil.yml` → `iletisim:` kısmı |
-| Eğitim, ilgi alanları, dersler, beceriler, deneyim | `_data/ozgecmis.yml` |
-| Projeler | `_data/projeler.yml` |
-| Linkler sayfası | `_data/linkler.yml` |
-| PDF başlıkları ve kategorileri (isteğe bağlı) | `_data/belgeler.yml` |
-| Blog yazıları | `_posts/` klasörü, her yazı ayrı bir dosya |
-| PDF'ler | `belgeler/` klasörü |
-| Fotoğraf | `assets/foto.jpg` (aynı adla yeni fotoğraf yükle) |
-| Renkler ve görünüm | `assets/style.css` |
+| Name, photo, tagline, city, social links | `_data/profile.yml` |
+| About text | `_data/profile.yml` → `about:` |
+| Contact details | `_data/profile.yml` → `contact:` |
+| Education, interests, coursework, skills, experience | `_data/cv.yml` |
+| Projects | `_data/projects.yml` |
+| Links page | `_data/links.yml` |
+| PDF titles and categories (optional) | `_data/documents.yml` |
+| Blog posts | `_posts/` folder, one file per post |
+| PDFs | `documents/` folder |
+| Photo | `assets/photo.jpg` (upload a new photo with the same name) |
+| Colours and layout | `assets/style.css` |
 
-## Yeni blog yazısı eklemek
+## Add a blog post
 
-1. `_posts` klasörüne gir, `2026-10-09-ornek-yazi-sablonu.md` dosyasını aç ve içeriğini kopyala.
-2. `_posts` klasöründe **Add file → Create new file** de.
-3. Dosya adını şöyle ver: `YIL-AY-GÜN-yazi-adi.md` (örnek: `2026-11-02-standart-model.md`).
-   - Sadece küçük harf, rakam ve tire kullan. Türkçe karakter kullanma.
-4. Kopyaladığın şablonu yapıştır, `published: false` satırını sil, başlığı ve metni yaz.
-5. **Commit changes** de.
+1. Open `_posts/2026-10-09-post-template.md` and copy its contents.
+2. In the `_posts` folder choose **Add file → Create new file**.
+3. Name it `YEAR-MONTH-DAY-post-name.md`, e.g. `2026-11-02-the-standard-model.md` (lowercase letters, numbers and hyphens only).
+4. Paste the template, delete the `published: false` line, write your post.
+5. Press **Commit changes**.
 
-Yazının adresi `iefesel.github.io/blog/yazi-adi/` olur. Tarihi bugünden ileri bir gün olan yazılar o gün gelene kadar görünmez.
+The post appears at `iefesel.github.io/blog/post-name/`. Posts dated in the future stay hidden until that date.
 
-### Yazıda biçimlendirme (Markdown)
+### Formatting (Markdown)
 
 ```
-### Ara başlık
-**kalın**  *italik*
-[link metni](https://adres.com)
-- madde
-> alıntı
-![resim açıklaması](/assets/resim.jpg)
-[PDF'i aç](/belgeler/dosya-adi.pdf)
+### Subheading
+**bold**  *italic*
+[link text](https://example.com)
+- list item
+> quote
+![image description](/assets/image.jpg)
+[Open the PDF](/documents/file-name.pdf)
+$$E = mc^2$$          (needs "math: true" at the top of the post)
 ```
 
-## PDF eklemek
+## Add a PDF
 
-1. `belgeler` klasörüne gir, **Add file → Upload files** de.
-2. PDF'i sürükle bırak, **Commit changes** de.
+1. Open the `documents` folder → **Add file → Upload files**.
+2. Drop the PDF in and press **Commit changes**.
 
-PDF, **Belgeler** sayfasında otomatik görünür. Başka bir şeyi düzenlemene gerek yok.
+It appears on the **Documents** page automatically. Nothing else to edit.
 
-- Dosya adında Türkçe karakter ve boşluk kullanma: `kuantum-mekanigi-notlar.pdf` gibi.
-- Sayfada görünen adı, açıklamayı ya da kategoriyi değiştirmek istersen `_data/belgeler.yml` dosyasına ekle.
-- Bir PDF'e blog yazısından ya da projeden link vermek için adresi: `/belgeler/dosya-adi.pdf`
+- Avoid spaces and special characters in file names: `quantum-mechanics-notes.pdf`.
+- For a nicer title, a description or a category, add an entry to `_data/documents.yml`.
+- To remove a PDF from the site, delete the file from the `documents` folder.
 
-## Bir şeyi gizlemek
+## Hide something
 
-- Yazı: başına `published: false` ekle.
-- Proje: altına `taslak: true` ekle.
+- Post: add `published: false` at the top.
+- Project: add `draft: true` under it.
 
-## Dikkat edilecekler
+## Good to know
 
-- `.yml` dosyalarında satır başındaki **boşluklar önemli**. Bir satırı kopyalarken girintisini aynı tut. Tab tuşu kullanma, boşluk kullan.
-- Metinleri tırnak `" "` içinde bırak. Metnin içinde tırnak kullanman gerekirse `'` kullan.
-- `_layouts`, `_includes` klasörlerine ve `_config.yml` dosyasına genelde dokunman gerekmez.
-- Bir şey bozulursa: repo sayfasında **Actions** sekmesine bak. Kırmızı çarpı varsa son değişikliğe tıklayıp hatayı görebilirsin. Dosyanın **History** kısmından eski haline dönebilirsin.
+- In `.yml` files the **spaces at the start of a line matter**. Keep the indentation when copying a line. Use spaces, not Tab.
+- Keep text inside quotes `" "`. If you need a quote mark inside the text, use `'`.
+- You rarely need to touch `_layouts`, `_includes` or `_config.yml`.
+- If something breaks, open the **Actions** tab of the repository. A red cross shows the failing change and its error. Every file's **History** lets you go back to an older version.
+
+Font: Latin Modern Roman (GUST Font License).

@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────
+#  LINKS — shown on the Links page, in groups
+#  New group: copy a "- group:" block.
+#  New link: copy a "- name: / url: / note:" set. "note" is optional.
+# ─────────────────────────────────────────────
+
+- group: "Particle physics and accelerators"
+  links:
+    - name: "CERN"
+      url: "https://home.cern"
+      note: "European Organization for Nuclear Research"
+    - name: "Particle Data Group"
+      url: "https://pdg.lbl.gov"
+      note: "Particle properties and reviews of particle physics"
+    - name: "INSPIRE-HEP"
+      url: "https://inspirehep.net"
+      note: "High energy physics literature database"
+
+- group: "Papers and course material"
+  links:
+    - name: "arXiv — hep-ph"
+      url: "https://arxiv.org/list/hep-ph/new"
+      note: "New high energy physics preprints"
+    - name: "MIT OpenCourseWare — Physics"
+      url: "https://ocw.mit.edu/search/?d=Physics"
+      note: "Free lecture notes and videos"

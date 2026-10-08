@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────
+#  CV — the lower part of the home page
+#  Two kinds of sections:
+#    rows: date/label on the left, title and details on the right
+#    tags: small boxes side by side
+#  To add a section, copy a block and paste it below.
+# ─────────────────────────────────────────────
+
+- title: "Education"
+  rows:
+    - when: "2022 – 2027"
+      what: "Middle East Technical University (METU)"
+      details: "B.Sc. in Physics · Ankara · Expected graduation 2027"
+    - when: "2018 – 2022"
+      what: "Zile Science High School"
+      details: "Tokat, Türkiye"
+
+- title: "Academic interests"
+  tags:
+    - "Mathematical physics"
+    - "Particle physics"
+    - "High energy physics"
+    - "Accelerator physics and technologies"
+    - "Quantum information theory"
+
+- title: "Relevant coursework"
+  tags:
+    - "Quantum Physics"
+    - "Quantum Mechanics"
+    - "Statistical Thermodynamics"
+    - "Mathematical Methods for Physics"
+
+- title: "Skills"
+  rows:
+    - when: "Programming"
+      what: "Python, MATLAB, C"
+    - when: "Languages"
+      what: "Turkish (native), English (C1)"
+    - when: "Hobbies"
+      what: "Violin"
+
+- title: "Experience"
+  rows:
+    - when: "July"
+      what: "Ankara University Institute of Accelerator Technologies"
+      details: "Summer internship · Ankara"
+
+- title: "International experience"
+  rows:
+    - when: "Summer 2024"
+      what: "Work and Travel — United States"
+      details: "3 months · New Hampshire · Worked with international teams at Wentworth by the Sea and Water Country."
